@@ -3,7 +3,7 @@ var canvasHeight = 750;
 var midX = canvasWidth/2;     
 var midY = canvasHeight/2;     
 
-var confetti = [];
+var firework = [];
 
 var initializer = 0;
 
@@ -17,7 +17,7 @@ function setup()
 
   for (var i = 0; i < 75; i++)
   {
-      confetti[i] = new Confetti();
+      firework[i] = new Firework();
   }
 }
 
@@ -25,12 +25,12 @@ function draw()
 {
   if (initializer == 1)
   {
-    for (var i = 0; i < confetti.length-1; i++)
+    for (var i = 0; i < firework.length-1; i++)
     {
-      if(confetti[i].y < canvasHeight)
+      if(firework[i].y < canvasHeight)
       {
-        confetti[i].move();
-        confetti[i].display();
+        firework[i].move();
+        firework[i].display();
       }
     }
   }
@@ -42,13 +42,13 @@ function mouseClicked()
   background(215,215,255);
   initializer = 1;
   grav = random(0.1, 1);
-  for (var i = 0; i < confetti.length-1; i++)
+  for (var i = 0; i < firework.length-1; i++)
   {
-    confetti[i].initialize(mouseX,mouseY);
+    firework[i].initialize(mouseX,mouseY);
   }
 }
 
-function Confetti()
+function Firework()
 {
   var velX;
   var velY;
